@@ -1,3 +1,9 @@
+/*Variables, loops, methods
+Arrays & array lists
+Objects, inheritance, polymorphism
+The unit circle and trigonometry
+pushMatrix, popMatrix, translate and rotate
+*/
 Particle[] particles;
 
 int am = 1000;
@@ -17,9 +23,8 @@ void setup() {
 void draw() {
   background(40);
   
-  int twoBS = borderStroke*2;
-  stroke(alpha);
-  rect(borderStroke, borderStroke, width-twoBS, height-twoBS);
+ 
+
   translate(width/2, 120);
   for (int i = 0; i < am; i++) {
     particles[i].draw();
@@ -41,15 +46,6 @@ void draw() {
   }
 }
 
-class Particle {
-  PVector loc, vel;
-  float a, s, radius;
-
-  Particle(PVector l, float i) {
-    loc = l;
-    a = i;
-    s = random(200, 250);
-  }
 
   void draw() {
     
