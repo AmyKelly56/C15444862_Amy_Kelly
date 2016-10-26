@@ -21,8 +21,13 @@ void setup() {
 }
 
 void draw() {
-  background(40);
   
+  /*background(40);
+  //rectangle around 
+  noFill();
+  stroke(0);
+  rect(-250, -110, 500, 220);
+  */
  
 
   translate(width/2, 120);
@@ -34,31 +39,14 @@ void draw() {
     particles[i].move();
   }
   
-  //green balls sideways
-  noStroke();
-  fill(0, 255, 150);
-  translate(width/2-25, height/2);
-  for (int i = 0; i < 360; i+=a) {
-    for(int k = -36; k < 36; k++){
-      float x = i/(a/6)+tan(radians(dist(i/(a/2), i/(a/2), 0, 0)+k*50+frameCount))*a;
-      ellipse(x, k*10, 5, 5);
-    }
-  }
-}
-
-
-  void draw() {
-    
-    noFill();
-    stroke(0);
-    rect(-250, -110, 500, 220);
-    
-    //Change the size of the particle in relation to its distance from the center.
+  //Change the size of the particle in relation to its distance from the center.
     noStroke();
     radius = map(dist(loc.x, loc.y, 0, 0), 0, 120, 10, 1);
     fill(0, 150, 255);
     ellipse(loc.x, loc.y, radius, radius);
-  }
+  
+}
+
 
   void drawMid() {
     fill(40);
@@ -71,4 +59,3 @@ void draw() {
     vel.mult(1.2);
     loc.add(vel);
   }
-}
