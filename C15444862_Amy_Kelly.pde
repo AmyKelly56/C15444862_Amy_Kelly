@@ -17,12 +17,19 @@ Particle[] particles;
 
 int am = 1000;
 
+float x = 0;
+float y = 0;
+
+PImage img;
+
 
 void setup() 
 {
   size(1200, 700);
   noStroke();
   smooth();
+  
+  img = loadImage("alien.jpg");
   
   cx = width / 2;
  cy = height / 2;
@@ -81,22 +88,13 @@ void draw()
   
   
   //second circle
-  fill(0,5); noStroke();rect(0,0,width,height);stroke(#0C77AF);an+=0.01;
-  line(width/2,height/2, 250+cos(an)*200, 250+sin(an)*200);
-  if(random(10)<1){
-    //dots on radar
-    fill(#FAAD12);
-    float r=random(10,200);
-    ellipse(250+cos(an)*r,250+sin(an)*r,4,4);
-  }
   noFill();
   stroke(#0C77AF);
   ellipse(970,400,20,20);
   ellipse(970,400,40,40);
   ellipse(970,400,80,80);
  
-  line(970,0,250,100);
-  line(970,255,100,255);
+ 
 
   
   //third circle
@@ -120,4 +118,13 @@ void draw()
     r.update();
     r.render();
   }
+  
+    image(img, x, y);
+
+ 
+  
+  
+  
+  x = lerp(x, mouseX, 0.1);
+  y = lerp(y, mouseY, 0.1);
 }
