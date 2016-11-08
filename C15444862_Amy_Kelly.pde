@@ -23,15 +23,19 @@ float y = 0;
 PImage img;
 
 
+
+
 void setup() 
 {
   size(1200, 700);
   noStroke();
   smooth();
   
-  img = loadImage("alien.jpg");
+  img = loadImage("alienhead.jpg.png");
   
-  cx = width / 2;
+  f = createFont("Dotum-20.vlw", 20, true);
+  
+ cx = width / 2;
  cy = height / 2;
   
   radars.add(new Radar(100, 100, 50, 0.01f)); 
