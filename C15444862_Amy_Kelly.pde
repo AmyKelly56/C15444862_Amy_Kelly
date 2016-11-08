@@ -75,6 +75,8 @@ void drawRadar()
 void draw() 
 {
   background(40);
+  
+ 
  
   //6 circles
   strokeWeight(3);
