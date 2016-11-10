@@ -95,11 +95,15 @@ void draw()
     }
     if (timeAccumulator >= 40)
     {
-      background(0);
-      
-      star();
-      drawStar();
-      newShootingStar();
+        for (int i=0; i < 250; i++) {
+    noStroke ();
+    ellipse(xPos[i], yPos[i], s[i], s[i]);
+        }
+ 
+      array();
+      mousePressed();
+      mouseDragged();
+      tracker();
     }
     
   }

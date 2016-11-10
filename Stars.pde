@@ -1,103 +1,118 @@
-// the twinlking star locations
-int[] starX = new int[1000];
-int[] starY = new int[1000];
-color[] starColor = new color[1000];
-int starSize = 3; // the size of the twinkling stars
+float[] xPos = new float[250];
+float[] yPos = new float[250];
+float[] xVel = new float[250];
+float[] yVel = new float[250];
+float[] s = new float[250]; 
 
-// the tail of the shooting star
-int[] shootX = new int[30];
-int[] shootY = new int[30];
-int METEOR_SIZE = 10; // initial size when it first appears
-float meteorSize = METEOR_SIZE; // size as it fades
+int a = 0;
+int b = 0;
+int c = 100;
+int p = 10;
 
-// distance a shooting star moves each frame - varies with each new shooting star
-float ssDeltaX, ssDeltaY; 
-// -1 indicates no shooting star, this is used to fade out the star
-int ssTimer = -1;
-// starting point of a new shooting star, picked randomly
-int startX, startY;
+//set up array
+void array() {
 
 
-void star() {
- 
-  // create the star locations
-  for (int i = 0; i < starX.length; i++) {
-    starX[i] =(int)random(width);
-    starY[i] = (int)random(height);
-    starColor[i] = color((int)random(100,255));
+  for (int i=0; i < 250; i++) {
+    xPos[i] = random(1, 1200);
+  }
+
+  for (int i=0; i < 250; i++) {
+    yPos[i] = random(1, 599);
+  }
+
+  for (int i=0; i < 250; i++) {
+    xVel[i] = random(-10, 10);
+  }
+
+  for (int i=0; i < 250; i++) {
+    yVel[i] = random(-10, 10);
+  }
+  for (int i=0; i < 250; i++) {
+    s[i] = random(1, 6);
+  }
+}
+//draw stars
+
+
+void mouseMoved() {
+  for (int i=0; i < 250; i++) {
+    if (dist(mouseX, mouseY, xPos[i], yPos[i]) < 100) {
+      xPos[i] = xPos[i] + random(100);
+      yPos[i] = yPos[i] - random(100);
+      xPos[i] = xPos[i] - random(100);
+      yPos[i] = yPos[i] + random(100);
+
+      if (xPos[i] < 0 || xPos[i] > 1200) {
+        xPos[i] = random(1200);
+      }
+
+      if (yPos[i] < 0 || yPos[i] > 600) {
+        yPos[i] = random(600);
+      }
+    }
+
+
+    //    stroke(random(100, 200), random(100, 200), random(200, 255), 40);
+    line(mouseX, mouseY, xPos[i], yPos[i]);
   }
 }
 
-void drawStar() {
-  background(0,0,50); // dark blue night sky
-  
-  // draw the stars
-  // the stars seem to show best with black outlines that aren't really perceived by the eye
-  stroke(0);
-  strokeWeight(1);
-  for (int i = 0; i < starX.length; i++) {
-    fill(random(50,255)); // makes them twinkle
-    if (random(10) < 1) {
-      starColor[i] = (int)random(100,255);
-    }
-    fill(starColor[i]);
-    
-    ellipse(starX[i], starY[i], starSize, starSize);
-  }
+void mouseDragged() {
+  for (int i=0; i < 250; i++) {
+    if (dist(mouseX, mouseY, xPos[i], yPos[i]) > 150) {
+      xPos[i] = xPos[i] - random(100);
+      yPos[i] = yPos[i] + random(100);
+      xPos[i] = xPos[i] + random(100);
+      yPos[i] = yPos[i] - random(100);
 
-  // draw the shooting star (if any)
-  for (int i = 0; i < shootX.length-1; i++) {
-    int shooterSize = max(0,int(meteorSize*i/shootX.length));
-    // to get the tail to disappear need to switch to noStroke when it gets to 0
-    if (shooterSize > 0) {
-      strokeWeight(shooterSize);
-      stroke(255);
-    }
-    else
-      noStroke();
-    line(shootX[i], shootY[i], shootX[i+1], shootY[i+1]);
-    // ellipse(shootX[i], shootY[i], meteorSize*i/shootX.length,meteorSize*i/shootX.length);
-  }
-  meteorSize*=0.9; // shrink the shooting star as it fades
-  
-  // move the shooting star along it's path
-  for (int i = 0; i < shootX.length-1; i++) {
-    shootX[i] = shootX[i+1];
-    shootY[i] = shootY[i+1];
-  }
-  
-  // add the new points into the shooting star as long as it hasn't burnt out
-  if (ssTimer >= 0 && ssTimer < shootX.length) {
-    shootX[shootX.length-1] = int(startX + ssDeltaX*(ssTimer));
-    shootY[shootY.length-1] = int(startY + ssDeltaY*(ssTimer));
-    ssTimer++;
-    if (ssTimer >= shootX.length) {
-      ssTimer = -1; // end the shooting star
-    }
-  }
+      if (xPos[i] < 0 || xPos[i] > 1200) {
+        xPos[i] = random(1200);
+      }
 
-  // create a new shooting star with some random probability
-  if (random(5) < 1 && ssTimer == -1) {
-    newShootingStar();
+      if (yPos[i] < 0 || yPos[i] > 600) {
+        yPos[i] = random(600);
+      }
+    }
+
+
+       stroke(100, 200, 250, 40);
+    line(mouseX, mouseY, xPos[i], yPos[i]);
   }
 }
 
-/*
-  Starts a new shooting star by randomly picking start and end point.
-*/
-void newShootingStar() {
-  int endX, endY;
-  startX = (int)random(width);
-  startY = (int)random(height);
-  endX = (int)random(width);
-  endY = (int)random(height);
-  ssDeltaX = (endX - startX)/(float)(shootX.length);
-  ssDeltaY = (endY - startY)/(float)(shootY.length);
-  ssTimer = 0; // starts the timer which ends when it reaches shootX.length
-  meteorSize = METEOR_SIZE;
-  // by filling the array with the start point all lines will essentially form a point initialy
-  for (int i = 0; i < shootX.length; i++) {
-    shootX[i] = startX;
-    shootY[i] = startY;
+void tracker ()
+{
+  smooth ();
+//  stroke(255);
+    noStroke ();
+  line (a, b, c, a);
+  a = a + 3;
+  if (a == 600) {
+    a = 0;
+    c = c +100;
+    b = b +100;
+  }
+  stroke (255);
+
+  for (int i=0; i < 250; i++) {
+
+    line (xPos[i]+p, yPos[i], xPos[i], yPos[i]);
+    line (xPos[i], yPos[i]+p, xPos[i], yPos[i]);
+    line (xPos[i], yPos[i], xPos[i]-p, yPos[i]);
+    line (xPos[i], yPos[i], xPos[i], yPos[i]-p);
+    if (a > yPos[i]-25) {
+      p = 5;
+    }
+    if (a < yPos[i]+25) {
+      p = 5;
+    }
+    if (a < yPos[i]-25) {
+      p = 0;
+    }
+    if (a > yPos[i]+25) {
+      p = 0;
+    }
+    i = i + 1;
   }
 }
