@@ -1,35 +1,36 @@
-PFont f;
-boolean mouseIsDown = false;
-boolean loading = false;
+int BarLen = 0;
+int BarHeight = 80;
+int BarMax = 775;
+int BarXPos = 11;
+int BarYPos = 10;
 
 
-
-void loading()
-{
+void draw() {
   
-  if(mouseIsDown == true)
-  {
-    loading = true;
-    frameCount = 1;
-  }
-  if(loading == false)
-  {
-    fill(255);
-    textAlign(CENTER);
-    
-  }
-  if(loading == true)
-  {
-    fill(255);
-    textAlign(LEFT);
-    text ("LOADING " + int((frameCount%301) / 3) + "%", 50, 130);
-    rect(48, 138, 204, 24);
-    fill(0);
-    int fillX = ((frameCount%301) / 3 * 2);
-    rect(250, 140, fillX-200, 20);
-    if(frameCount%301 == 0)
-    {
-      loading = false;
+  bar();
+  
+  if (BarLen >= BarMax) { //if the previous bar has finished drawing, draw a new bar 100 pixels down
+    BarYPos += 100;
+    BarLen = 0;
+    bar();
+    if(BarYPos > height) {
+      BarYPos = BarYPos;
     }
   }
+ 
 }
+ 
+void bar() {
+  
+  
+  BarLen += 7;
+  
+  if (BarLen >= BarMax) { //stop the bar before it goes off the screen
+    BarLen = BarMax;
+    }
+    
+  stroke(0,255,0); //draw the progress bar
+  fill(0,255,0);
+  rect(BarXPos,BarYPos,BarLen,BarHeight);
+}
+  

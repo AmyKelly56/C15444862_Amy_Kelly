@@ -25,9 +25,11 @@ PImage img;
 
 
 
+
+
 void setup() 
 {
-  size(1200, 700);
+  fullScreen();
   noStroke();
   smooth();
   
