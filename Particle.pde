@@ -11,15 +11,10 @@ class Particle
 
   void drawp() 
   {
-    //Rectangle Around Particles
-    noFill();
-    stroke(#0C77AF);
-    rect(-250, -110, 500, 220);
-  
     //Change the size of the particle in relation to its distance from the center.
     noStroke();
     radius = map(dist(loc.x, loc.y, 0, 0), 0, 120, 10, 1);
-    fill(0, 150, 255);
+    fill(0, #A0681F, 255);
     ellipse(loc.x, loc.y, radius, radius);
   }
   

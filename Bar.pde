@@ -1,3 +1,11 @@
+int BarLen = 0;
+int BarHeight = 80;
+int BarMax = 775;
+int BarXPos = 11;
+int BarYPos = 10;
+Boolean textPopup = false;
+String tx = "System Loaded!\nClick to Continue";
+
 void bar() 
 {
   BarLen += 70;

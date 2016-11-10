@@ -1,3 +1,5 @@
+float an=0;
+
 class Radar
 {
   float speed = 0.01;
