@@ -19,7 +19,7 @@ void bar()
     textPopup = true;
   }
   
-  stroke(0,255,0); //draw the progress bar
-  fill(0,255,0);
+  //stroke(0,255,0); //draw the progress bar
+  fill(#076DF0);
   rect(BarXPos,BarYPos,BarLen,BarHeight);
 }

@@ -6,7 +6,7 @@ int BarMax = 775;
 int BarXPos = 11;
 int BarYPos = 10;
 Boolean textPopup = false;
-PImage img;
+
 float x = 0;
 float y = 0;
 //variable for particles
@@ -22,7 +22,6 @@ void setup() {
   smooth();
   fill(0);
   
-  img = loadImage("alienhead.jpg.png");
   
   for (int i = 0; i < am; i++) 
   {
@@ -64,6 +63,7 @@ void draw() {
   }
   else if(gameState == "Next")
   {
+    background(0);
     for (int i = 0; i < am; i++) 
     {
       particles[i].drawp();
@@ -72,34 +72,7 @@ void draw() {
     }      
   }
   
-  else
-  { 
-    text("OOPS", 50, 50);  
-  }
-  
-  image(img, x, y);
-    
-  x = lerp(x, mouseX, 0.1);
-  y = lerp(y, mouseY, 0.1);
-}
- 
-void bar() {
-  
-  
-  BarLen += 70;
-  
-  if (BarLen == BarMax) { //stop the bar before it goes off the screen
-    BarLen = BarMax;
-    }
-    
-   if(BarYPos > height)
-   {
-     textPopup = true;
-   }
-    
-  stroke(0,255,0); //draw the progress bar
-  fill(0,255,0);
-  rect(BarXPos,BarYPos,BarLen,BarHeight);
+
 }
 
 

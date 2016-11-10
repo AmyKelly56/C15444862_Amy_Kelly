@@ -3,18 +3,19 @@ class Particle
   PVector loc, vel;
   float a, s, radius;
 
-  Particle(PVector l, float i) {
+  Particle(PVector l, float i) 
+  {
     loc = l;
     a = i;
     s = random(200, 250);
   }
 
-  void drawp() 
+  void drawpart() 
   {
     //Change the size of the particle in relation to its distance from the center.
     noStroke();
     radius = map(dist(loc.x, loc.y, 0, 0), 0, 120, 10, 1);
-    fill(0, #A0681F, 255);
+    fill(#076DF0, 255);
     ellipse(loc.x, loc.y, radius, radius);
   }
   
@@ -24,9 +25,9 @@ class Particle
   }
 
 void move() {
-    float r = sin(radians(frameCount*(s/150)));
+    float r = sin(radians(frameCount*(s/500)));
     vel = new PVector(sin(radians(a))*r, cos(radians(a))*r);
-    vel.mult(1.2);
+    vel.mult(2.5);
     loc.add(vel);
   }
 }

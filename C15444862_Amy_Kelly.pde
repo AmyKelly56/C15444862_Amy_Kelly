@@ -1,9 +1,10 @@
-/*Variables, loops, methods
+/* methods
  Arrays & array lists
  Objects, inheritance, polymorphism
  The unit circle and trigonometry
  pushMatrix, popMatrix, translate and rotate  
  */
+
 String gameState;
 int am = 1000;
 
@@ -75,21 +76,36 @@ void draw()
   } 
   else if (gameState == "Part")
   {
-    background(0);
-    translate(width/2, 120);
+    timer();
     
-    for (int i = 0; i < am; i++) 
+    if(timeAccumulator >= 0)
     {
-      particles[i].drawp();
+      background(0);
+      translate(width/2, height/2);
+      
+      for (int i = 0; i < am; i++) 
+      {
+        particles[i].drawpart();
+      }
+      for (int i = 0; i < am; i++) 
+      {
+        particles[i].drawMid();
+        particles[i].move();
+      }
     }
-    for (int i = 0; i < am; i++) 
+    if (timeAccumulator >= 40)
     {
-      particles[i].drawMid();
-      particles[i].move();
+      background(0);
+      
+      star();
+      drawStar();
+      newShootingStar();
     }
+    
   }
   else if (gameState == "Radar")
   {
+    background(0);
 
     for (Radar r : radars)
     {
