@@ -15,6 +15,25 @@ class Radar
     this.speed = speed;
   }
   
+  void drawRadar()
+  {
+    background(0);
+    stroke(0, 255, 0);
+    noFill();
+    ellipse(cx, cy, radius * 2, radius * 2);
+  
+    float intensityChange = 255.0f / trailLength;
+    for(int i = 0 ; i < trailLength ; i ++)
+    {
+      float lineTheta = theta - (i * speed);
+      stroke(0, 255 - (i * intensityChange), 0);
+      float x = cx + sin(lineTheta) * radius;
+      float y = cy - cos(lineTheta) * radius;
+      line(cx, cy, x, y);
+    }
+    theta += speed;
+  }  
+  
   void update()
   {
     theta += speed;

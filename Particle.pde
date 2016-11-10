@@ -9,7 +9,7 @@ class Particle
     s = random(200, 250);
   }
 
-  void draw() 
+  void drawp() 
   {
     //Rectangle Around Particles
     noFill();
