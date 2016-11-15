@@ -1,3 +1,7 @@
+int am = 1000;
+
+Particle[] particles = new Particle[am];
+
 class Particle 
 {
   PVector loc, vel;

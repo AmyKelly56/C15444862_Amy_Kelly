@@ -1,60 +1,22 @@
 float an=0;
 
-class Radar
+void radar()
 {
-  float speed = 0.01;
-  int trailLength = 50;  
-  float theta = 0;
-  float cx, cy;
-  float radius = 200;
+  fill(0,5); noStroke();rect(0,0,width,height);stroke(0,255,0);an+=0.01;
+  line(width/2,height/2, 250+cos(an)*200, 250+sin(an)*200);
   
-  Radar(float x, float y, float radius, float speed)
+  if(random(10)<1)
   {
-    this.speed = speed;
-    cx = x;
-    cy = y;
-    this.radius = radius;
-    this.speed = speed;
+    fill(100,255,100);
+    float r=random(10,200);
+    ellipse(250+cos(an)*r,250+sin(an)*r,4,4);
   }
   
-  void drawRadar()
-  {
-    background(0);
-    stroke(0, 255, 0);
-    noFill();
-    ellipse(cx, cy, radius * 2, radius * 2);
-  
-    float intensityChange = 255.0f / trailLength;
-    for(int i = 0 ; i < trailLength ; i ++)
-    {
-      float lineTheta = theta - (i * speed);
-      stroke(0, 255 - (i * intensityChange), 0);
-      float x = cx + sin(lineTheta) * radius;
-      float y = cy - cos(lineTheta) * radius;
-      line(cx, cy, x, y);
-    }
-    theta += speed;
-  }  
-  
-  void update()
-  {
-    theta += speed;
-  }
-  
-  void render()
-  {
-    stroke(0, 255, 0);
-    noFill();
-    ellipse(cx, cy, radius * 2, radius * 2);
-  
-    float intensityChange = 255.0f / trailLength;
-    for(int i = 0 ; i < trailLength ; i ++)
-    {
-      float lineTheta = theta - (i * speed);
-      stroke(0, 255 - (i * intensityChange), 0);
-      float x = cx + sin(lineTheta) * radius - 1;
-      float y = cy - cos(lineTheta) * radius - 1;
-      line(cx, cy, x, y);
-    }
-  }
+  noFill();
+  stroke(0,255,0);
+  ellipse(250,250,100,100);
+  ellipse(250,250,200,200);
+  ellipse(250,250,300,300);
+  line(250,0,250,500);
+  line(0,255,500,255);
 }

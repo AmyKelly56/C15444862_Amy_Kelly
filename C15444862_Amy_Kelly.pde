@@ -6,9 +6,6 @@
  */
 
 String gameState;
-int am = 1000;
-
-Particle[] particles = new Particle[am];
 
 float x = 0;
 float y = 0;
@@ -25,8 +22,6 @@ void setup()
   cx = width / 2;
   cy = height / 2;
 
-  radars.add(new Radar(100, 100, 50, 0.01f)); 
-
   for (int i = 0; i < am; i++) 
   {
     particles[i] = new Particle(new PVector(0, 0), i);
@@ -40,8 +35,6 @@ int trailLength = 50;
 float theta = 0;
 float cx, cy;
 float radius = 200;
-ArrayList<Radar> radars = new ArrayList<Radar>();
-
 
 void draw() 
 {
@@ -78,7 +71,7 @@ void draw()
   {
     timer();
     
-    if(timeAccumulator >= 0)
+    if(timeAccumulator >= -1)
     {
       background(0);
       translate(width/2, height/2);
@@ -93,34 +86,35 @@ void draw()
         particles[i].move();
       }
     }
-    if (timeAccumulator >= 40)
+    if (timeAccumulator >= 40) //change when compltete
     {
-        for (int i=0; i < 250; i++) {
-    noStroke ();
-    ellipse(xPos[i], yPos[i], s[i], s[i]);
-        }
- 
-      array();
-      mousePressed();
-      mouseDragged();
-      tracker();
-    }
+     background(0);
+
+     circles();
+  
+     image(img, x, y);
+  
+     x = lerp(x, mouseX, 0.1);
+     y = lerp(y, mouseY, 0.1);
+     
+      
+  
+}
+
+  
     
-  }
+ }
   else if (gameState == "Radar")
   {
     background(0);
+    
+  
+     image(img, x, y);
+  
+     x = lerp(x, mouseX, -0.1);
+     y = lerp(y, mouseY, -0.1);
+         
+     } 
 
-    for (Radar r : radars)
-    {
-      r.update();
-      r.render();
-    }
-
-    image(img, x, y);
-
-    x = lerp(x, mouseX, 0.1);
-    y = lerp(y, mouseY, 0.1);
+ 
   }
-
-}
