@@ -20,11 +20,11 @@ void loadImages()
 
 void drawPlanets()
 {
-  image(neptune, 100, 80, 100, 100);
-  image(earth, -300, 80, 200, 200);
-  image(pluto, 260,50, 50, 50);
-  image(mars, 400, 0, 300, 225);
-  image(saturn, 20, 400, 215, 215);
-  image(Uranus, 500, 400, 120, 120);
-  image(venus, -200, 500, 100, 10);
+  image(neptune, width/2, height/2, 100, 100);
+  image(earth, width/2, height/2,  200, 200);
+  image(pluto, width/2, height/2, 50, 50);
+  image(mars, width/2, height/2, 300, 225);
+  image(saturn, width/2, height/2, 215, 215);
+  image(Uranus, width/2, height/2, 120, 120);
+  image(venus, width/2, height/2, 100, 10);
 }

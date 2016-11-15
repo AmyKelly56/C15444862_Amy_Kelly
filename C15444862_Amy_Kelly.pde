@@ -5,6 +5,7 @@ void setup()
 {
   fullScreen(P3D);
   noStroke();
+  noFill();
   frameRate(20);
   smooth();
 
@@ -59,6 +60,7 @@ void draw()
     if (timeAccumulator >= -1)
     {
       background(0);
+      pushMatrix();
       translate(width/2, height/2);
 
       for (int i = 0; i < am; i++) 
@@ -70,15 +72,17 @@ void draw()
         particles[i].drawMid();
         particles[i].move();
       }
+      popMatrix();
     }
     if (timeAccumulator >= 4) //change when compltete
     {
       background(0);
+      stars();
+      drawStar();
       
       drawGalaxy();
+  
       
-      //loadImages();
-      //drawPlanets();
     }
   }
 }

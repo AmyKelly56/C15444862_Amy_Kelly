@@ -2,7 +2,7 @@ ArrayList galaxies = new ArrayList();
 
 void drawGalaxy()
 {
-  translate(width/2, 100);
+  translate(width/2, 150);
   rotateX(radians(1+mouseY/3));
   rotateY(radians(1+mouseX/3));
   rotateZ(radians(90));
@@ -28,7 +28,7 @@ void drawGalaxy()
 class Galaxy {
   PVector loc, vel;
   
-  float life = random(100, 100);
+  float life = random(90, 100 );
   float maxLife = life;
   
   Galaxy(PVector vel)
