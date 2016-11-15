@@ -28,7 +28,8 @@ class Particle
     ellipse(loc.x, loc.y, radius-4, radius-4);
   }
 
-void move() {
+  void move() 
+  {
     float r = sin(radians(frameCount*(s/500)));
     vel = new PVector(sin(radians(a))*r, cos(radians(a))*r);
     vel.mult(2.5);

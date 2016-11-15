@@ -25,5 +25,4 @@ void dots()
       ellipse(x, k*10, 5, 5);
     }
   }
-}
-    
+}    

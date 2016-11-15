@@ -1,26 +1,12 @@
-/* methods
- Arrays & array lists
- Objects, inheritance, polymorphism
- The unit circle and trigonometry
- pushMatrix, popMatrix, translate and rotate  
- */
 
 String gameState;
 
-float x = 0;
-float y = 0;
-
-PImage img;
-
 void setup() 
 {
-  fullScreen();
-  noStroke(); 
-  img = loadImage("alienhead.jpg.png");
+  fullScreen(P3D);
+  noStroke();
+  frameRate(20);
   smooth();
-
-  cx = width / 2;
-  cy = height / 2;
 
   for (int i = 0; i < am; i++) 
   {
@@ -43,7 +29,7 @@ void draw()
   {
     bar();
 
-    if (BarLen >= BarMax) //if the previous bar has finished drawing, draw a new bar 100 pixels down
+    if (BarLen >= BarMax)
     {
       BarYPos += 100;
       BarLen = 0;
@@ -66,16 +52,15 @@ void draw()
   if (textPopup == true && mousePressed == true)
   {
     gameState = "Part";
-  } 
-  else if (gameState == "Part")
+  } else if (gameState == "Part")
   {
     timer();
-    
-    if(timeAccumulator >= -1)
+
+    if (timeAccumulator >= -1)
     {
       background(0);
       translate(width/2, height/2);
-      
+
       for (int i = 0; i < am; i++) 
       {
         particles[i].drawpart();
@@ -86,35 +71,14 @@ void draw()
         particles[i].move();
       }
     }
-    if (timeAccumulator >= 40) //change when compltete
+    if (timeAccumulator >= 4) //change when compltete
     {
-     background(0);
-
-     circles();
-  
-     image(img, x, y);
-  
-     x = lerp(x, mouseX, 0.1);
-     y = lerp(y, mouseY, 0.1);
-     
+      background(0);
       
-  
-}
-
-  
-    
- }
-  else if (gameState == "Radar")
-  {
-    background(0);
-    
-  
-     image(img, x, y);
-  
-     x = lerp(x, mouseX, -0.1);
-     y = lerp(y, mouseY, -0.1);
-         
-     } 
-
- 
+      drawGalaxy();
+      
+      //loadImages();
+      //drawPlanets();
+    }
   }
+}
