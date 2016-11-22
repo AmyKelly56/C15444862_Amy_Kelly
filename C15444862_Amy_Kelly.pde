@@ -1,4 +1,5 @@
 String gameState;
+String tx = "System Loaded";
 
 void setup() 
 {
@@ -28,21 +29,21 @@ void draw()
   background(40);
   if (gameState == "Open")
   {
-    bar();
+     background(0);
+     pushMatrix();
+     translate(width/2, height/2);
 
-    if (BarLen >= BarMax)
-    {
-      BarYPos += 100;
-      BarLen = 0;
-      bar();
-
-      if (BarYPos > height) 
-      {
-        BarYPos = BarYPos;
-      }
-    }
-  }
-  if (textPopup == true)
+     for (int i = 0; i < am; i++) 
+     {
+       particles[i].drawpart();
+     }
+     for (int i = 0; i < am; i++) 
+     {
+       particles[i].drawMid();
+       particles[i].move();
+     }
+     popMatrix();
+      
   {
     fill(255);
     textSize(40);
@@ -57,24 +58,6 @@ void draw()
   {
     timer();
 
-    if (timeAccumulator >= -1)
-    {
-      background(0);
-      pushMatrix();
-      translate(width/2, height/2);
-
-      for (int i = 0; i < am; i++) 
-      {
-        particles[i].drawpart();
-      }
-      for (int i = 0; i < am; i++) 
-      {
-        particles[i].drawMid();
-        particles[i].move();
-      }
-      popMatrix();
-    }
-    if (timeAccumulator >= 4) //change when compltete
     {
       background(0);
       stars();
@@ -92,6 +75,11 @@ void draw()
        
       
       radar();
+      //jitter();
+      //drawSquare();
+
+
+
    
       
        /*pushMatrix();
