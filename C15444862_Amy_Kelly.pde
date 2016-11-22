@@ -85,6 +85,8 @@ void draw()
     pushMatrix();
     drawtriangle();
     popMatrix();
+    
+    
      
   }
 }
