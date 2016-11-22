@@ -1,5 +1,6 @@
 String gameState;
 String tx = "System Loaded";
+Boolean textPopup = true;
 
 void setup() 
 {
@@ -43,22 +44,26 @@ void draw()
        particles[i].move();
      }
      popMatrix();
-      
+   }
+   
+   timer();
+  if (timeAccumulator >= 40)
+  {
+  
+  if(textPopup == true)    
   {
     fill(255);
     textSize(40);
     textAlign(CENTER);
     text(tx, width/2, height/2);
   }
-
+  }
   if (textPopup == true && mousePressed == true)
   {
     gameState = "Part";
-  } else if (gameState == "Part")
+  } 
+  else if (gameState == "Part")
   {
-    timer();
-
-    {
       background(0);
       stars();
       drawStar();
@@ -95,5 +100,3 @@ void draw()
     } 
   }
    
-
-  }
