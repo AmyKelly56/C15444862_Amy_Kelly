@@ -9,6 +9,7 @@ void setup()
   noFill();
   lights();
   frameRate(20);
+  loop();
   smooth();
 
   for (int i = 0; i < am; i++) 
@@ -80,11 +81,9 @@ void draw()
     drawSquare();
     popMatrix();
     
-    //radar();
+    radar();
 
-    pushMatrix();
-    drawtriangle();
-    popMatrix();
+ 
     
     
      
