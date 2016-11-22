@@ -70,6 +70,7 @@ void draw()
 
     stroke(#8C9B92);
     strokeWeight(3);
+    fill(0);
     arc(width/2, 55, 500, 100, 0, PI);
     line(55, 55, 390, 55);
     line(1200, 55, 890, 55);
@@ -87,11 +88,14 @@ void draw()
     pushMatrix();
     drawGalaxy();
     popMatrix();
+    
+    drawCircle();
 
-    pushMatrix();
+    /*pushMatrix();
     drawSquare();
     popMatrix();
     
-    //radar();    
+    //radar(); 
+    */
   }
 }

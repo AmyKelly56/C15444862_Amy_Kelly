@@ -11,6 +11,8 @@ int p = 10;
 
 void stars() 
 {
+  
+  fill(255);
   for (int i=0; i < 250; i++) 
   {
     xPos[i] = random(55, 1200);
@@ -18,7 +20,7 @@ void stars()
 
   for (int i=0; i < 250; i++)
   {
-    yPos[i] = random(1, 300);
+    yPos[i] = random(55, 500);
   }
 
   for (int i=0; i < 250; i++) 
