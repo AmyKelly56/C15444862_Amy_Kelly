@@ -68,7 +68,7 @@ void draw()
     stars();
     drawStar();
 
-    stroke(#8C9B92);
+    stroke(#0ACB35);
     strokeWeight(3);
     fill(0);
     arc(width/2, 55, 500, 100, 0, PI);
