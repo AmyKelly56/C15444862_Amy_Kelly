@@ -1,4 +1,3 @@
-
 String gameState;
 
 void setup() 
@@ -6,6 +5,7 @@ void setup()
   fullScreen(P3D);
   noStroke();
   noFill();
+  lights();
   frameRate(20);
   smooth();
 
@@ -80,9 +80,33 @@ void draw()
       stars();
       drawStar();
       
+      pushMatrix();
       drawGalaxy();
-  
+      popMatrix();
+     
+      fill(#EAA10C);
+      rect(0, 370, 1278, 425);
+      fill(255);
+      rect(0, 370, 1300, 90);
+      fill(0, 255, 150);
+
+      translate(550, 420);
+      for (int i = 0; i < 360; i+=a) 
+      {
+        for(int k = -4; k < 4; k++)
+        {
+          float x = i/(a/5)+tan(radians(dist(i/(a/2), i/(a/2), 0, 0)+k*50+frameCount))*a;
+          ellipse(x, k*10, 5, 5);
+        }
+
+      }
       
+      
+      radar();
+      
+   
+      
+   
     }
   }
 }

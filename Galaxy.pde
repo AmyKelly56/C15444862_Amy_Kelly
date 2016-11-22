@@ -25,7 +25,8 @@ void drawGalaxy()
   }
 }
 
-class Galaxy {
+class Galaxy 
+{
   PVector loc, vel;
   
   float life = random(90, 100 );
@@ -37,19 +38,23 @@ class Galaxy {
     this.vel = vel;
   }
   
-  void starGalaxy(){
+  void starGalaxy()
+  {
     translate(loc.x, loc.y, loc.z);
     float gAndA = map(life, 100, maxLife, 100, 255);
     stroke(map(life, 0, maxLife, 150, 255), gAndA, map(life, 0, maxLife, 255, 0), gAndA);
     strokeWeight(map(life, 0, maxLife, 5, 1));
     point(0, 0, 0);
     life--;
-    if(life <= 0){
+    
+    if(life <= 0)
+    {
       galaxies.remove(this); 
     }
   }
   
-  void move(){
-    loc.add(vel); 
+  void move()
+  { 
+    loc.add(vel);
   }
 }

@@ -10,7 +10,7 @@ void bar()
 {
   BarLen += 70;
   
-  if (BarLen == BarMax) //stop the bar before it goes off the screen
+  if (BarLen == BarMax)
   {
     BarLen = BarMax;
   }
@@ -19,7 +19,6 @@ void bar()
     textPopup = true;
   }
   
-  //stroke(0,255,0); //draw the progress bar
-  fill(#076DF0);
+  fill(random(255), random(255), random(255));
   rect(BarXPos,BarYPos,BarLen,BarHeight);
 }
