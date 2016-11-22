@@ -7,10 +7,9 @@ int ang2 = 1;
 int ang3 = 1;
 
 
-
-void drawCircle(){
+void drawCircle()
+{
   
-
   stroke(255);
   strokeWeight(10);
     

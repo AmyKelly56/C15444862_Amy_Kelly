@@ -13,12 +13,12 @@ void stars()
 {
   for (int i=0; i < 250; i++) 
   {
-    xPos[i] = random(20, 1300);
+    xPos[i] = random(55, 1200);
   }
 
   for (int i=0; i < 250; i++)
   {
-    yPos[i] = random(1, 350);
+    yPos[i] = random(1, 300);
   }
 
   for (int i=0; i < 250; i++) 

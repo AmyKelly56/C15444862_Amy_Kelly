@@ -68,9 +68,20 @@ void draw()
     stars();
     drawStar();
 
-    stroke(#5AF79A);
+    stroke(#8C9B92);
     strokeWeight(3);
-    line(0, 350, width, 350);
+    arc(width/2, 55, 500, 100, 0, PI);
+    line(55, 55, 390, 55);
+    line(1200, 55, 890, 55);
+    line(55, 55, 55, 500);
+    line(1200, 55, 1200, 500);
+    line(55, 500, 390, 500);
+    line(1200, 500, 890, 500);
+    pushMatrix();
+    translate(width/2, height/2+100);
+    rotate(radians(180));
+    arc(0, 0, 500, 200, 0, PI);
+    popMatrix();
 
 
     pushMatrix();
@@ -81,11 +92,6 @@ void draw()
     drawSquare();
     popMatrix();
     
-    radar();
-
- 
-    
-    
-     
+    //radar();    
   }
 }
