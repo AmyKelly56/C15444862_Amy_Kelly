@@ -67,8 +67,7 @@ void tri() {
 
 
 void drawtriangle() {
-  background(0);
-  
+
   translate(width/2, height/2);
   rotate(radians(frameCount*0.35));
   scale(0.4);

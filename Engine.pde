@@ -1,14 +1,12 @@
 float angle;
 float jitter;
 
-void jitter() {
- 
+
+void drawSquare() {
+  
   noStroke();
   fill(255);
   rectMode(CENTER);
-}
-
-void drawSquare() {
 
 
   // during even-numbered seconds (0, 2, 4, 6...)
@@ -17,7 +15,13 @@ void drawSquare() {
   }
   angle = angle + jitter;
   float c = cos(angle);
+  pushMatrix();
   translate(1100, 700);
   rotate(c);
-  rect(0, 0, 120, 120);    
+
+  rect(0, 0, 120, 120); 
+  
+  popMatrix();
+  
+
 }

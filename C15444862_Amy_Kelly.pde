@@ -30,73 +30,61 @@ void draw()
   background(40);
   if (gameState == "Open")
   {
-     background(0);
-     pushMatrix();
-     translate(width/2, height/2);
+    background(0);
+    pushMatrix();
+    translate(width/2, height/2);
 
-     for (int i = 0; i < am; i++) 
-     {
-       particles[i].drawpart();
-     }
-     for (int i = 0; i < am; i++) 
-     {
-       particles[i].drawMid();
-       particles[i].move();
-     }
-     popMatrix();
-   }
-   
-   timer();
+    for (int i = 0; i < am; i++) 
+    {
+      particles[i].drawpart();
+    }
+    for (int i = 0; i < am; i++) 
+    {
+      particles[i].drawMid();
+      particles[i].move();
+    }
+    popMatrix();
+  }
+
+  timer();
   if (timeAccumulator >= 40)
   {
-  
-  if(textPopup == true)    
-  {
-    fill(255);
-    textSize(40);
-    textAlign(CENTER);
-    text(tx, width/2, height/2);
-  }
+
+    if (textPopup == true)    
+    {
+      fill(255);
+      textSize(40);
+      textAlign(CENTER);
+      text(tx, width/2, height/2);
+    }
   }
   if (textPopup == true && mousePressed == true)
   {
-    gameState = "Part";
-  } 
-  else if (gameState == "Part")
+    gameState = "Main";
+  } else if (gameState == "Main")
   {
-      background(0);
-      stars();
-      drawStar();
-      
-      pushMatrix();
-      drawGalaxy();
-      popMatrix();
+    background(0);
+    stars();
+    drawStar();
+
+    stroke(#5AF79A);
+    strokeWeight(3);
+    line(0, 350, width, 350);
+
+
+    pushMatrix();
+    drawGalaxy();
+    popMatrix();
+
+    pushMatrix();
+    drawSquare();
+    popMatrix();
+    
+    //radar();
+
+    pushMatrix();
+    drawtriangle();
+    popMatrix();
      
-      fill(0);
-      rect(0, 370, 1278, 425);
-      fill(0);
-      rect(0, 370, 1300, 90);
-      
-       
-      
-      radar();
-      //jitter();
-      //drawSquare();
-
-
-
-   
-      
-       /*pushMatrix();
-      tri();
-      
-      
-      drawtriangle();
-      popMatrix();
-      //drawSquares();
-      */
-      
-   
-    } 
   }
-   
+}
