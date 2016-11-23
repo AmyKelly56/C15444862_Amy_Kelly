@@ -91,11 +91,10 @@ void draw()
     
     drawCircle();
 
-    /*pushMatrix();
+    pushMatrix();
     drawSquare();
     popMatrix();
     
-    //radar(); 
-    */
+
   }
 }
