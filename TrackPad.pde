@@ -1,7 +1,7 @@
 int startPoint;
 int endPoint;
-int xDim=20;
-int yDim=10;
+int xDim=width;
+int yDim=5;
 int d=15;
 LedGrid lg = new LedGrid(xDim, yDim);
 int e=0;
@@ -10,7 +10,7 @@ int eInc=5;
 void drawTrack() 
 {
  
-  translate(width/2-120, 650);
+  translate(0, height-50);
   lg.render();
 
   for (int i=0;i<e;i++) 
@@ -32,8 +32,7 @@ class LedGrid
   int xD = 0;
   int yD=0;
   
-  public LedGrid(int x, int y) 
-  {
+  public LedGrid(int x, int y) {
     this.xD = x;
     this.yD=y;
     l = new Led[x][y];

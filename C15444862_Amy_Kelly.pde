@@ -1,6 +1,7 @@
 String gameState;
 String tx = "System Loaded";
 Boolean textPopup = true;
+Boolean mouseClickable = false;
 
 void setup() 
 {
@@ -11,6 +12,10 @@ void setup()
   frameRate(20);
   loop();
   smooth();
+  strokeJoin(ROUND);
+  
+  
+  
 
   for (int i = 0; i < am; i++) 
   {
@@ -46,12 +51,12 @@ void draw()
     }
     popMatrix();
   }
-
   timer();
+  
   if (timeAccumulator >= 40)
   {
-
-    if (textPopup == true)    
+      mouseClickable = true;
+    if (textPopup == true )    
     {
       fill(255);
       textSize(40);
@@ -59,10 +64,12 @@ void draw()
       text(tx, width/2, height/2);
     }
   }
-  if (textPopup == true && mousePressed == true)
+  if (textPopup == true && mousePressed == true && mouseClickable == true)
   {
     gameState = "Main";
-  } else if (gameState == "Main")
+    textPopup = false;
+  } 
+  else if (gameState == "Main")
   {
     background(0);
     stars();
@@ -83,18 +90,29 @@ void draw()
     rotate(radians(180));
     arc(0, 0, 500, 200, 0, PI);
     popMatrix();
-
+    
+ 
+    /*if(mouseX && mouseY)
+    {
+      rect(0, height-250, 50, 150);
+    }
+    */
 
     pushMatrix();
     drawGalaxy();
     popMatrix();
     
-    drawCircle();
-
-    pushMatrix();
-    drawSquare();
-    popMatrix();
+    //drawCircle();
+    //drawTri();
     
-
+    pushMatrix();
+    drawTrack();
+    popMatrix();
+   
+    
+    drawCircle();
+    
+    
+  
   }
 }
