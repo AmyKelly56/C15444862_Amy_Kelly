@@ -18,6 +18,7 @@ void setup()
   
   minim = new Minim(this);
   Space = minim.loadFile("contact.wav");
+  Space.play();
   
   red = new Regler(width/2, 600);
   green = new Regler(width/2, 630);
@@ -43,7 +44,7 @@ void draw()
   if (gameState == "Open")
   {
     background(0);
-    Space.play();
+
     pushMatrix();
     translate(width/2, height/2);
 
@@ -98,11 +99,7 @@ void draw()
     arc(0, 0, 500, 200, 0, PI);
     popMatrix();
 
-    fill(#0ACB35);
-    ellipse(55, 200, 40, 40);
-    ellipse(55, 250, 40, 40);
-    ellipse(55, 300, 40, 40);
-    ellipse(55, 350, 40, 40);
+  
 
     line(55, 530, 390, 530);
     line(1200, 530, 890, 530);
@@ -132,6 +129,10 @@ void draw()
   
     BarChart();
     drawBarChart();
+   
+    gui();
+    drawgui();
+   
     //button();
     
     //mousePressed();
