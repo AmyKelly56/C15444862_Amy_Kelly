@@ -1,20 +1,7 @@
-/*ArrayList corners = new ArrayList();
+ArrayList corners = new ArrayList();
 PVector[] points;
 float angle = 120, shapeSize = 80;
 
-class Corner {
-  PVector loc, vel, nextLoc;
-  int speed, index;
-
-  Corner(float s) {
-    speed = 2;
-    index = 0;
-    
-    loc = points[index].get();
-    nextLoc = loc.get();
-    changeVelocity(nextLoc);
-  }
-  
   void drawTri(){
  
   points = new PVector[int(360/angle)+1];
@@ -48,6 +35,20 @@ class Corner {
   endShape();
 }
 
+class Corner {
+  PVector loc, vel, nextLoc;
+  int speed, index;
+
+  Corner(float s) {
+    speed = 2;
+    index = 0;
+    
+    loc = points[index].get();
+    nextLoc = loc.get();
+    changeVelocity(nextLoc);
+  }
+  
+
   void move() 
   {
     if (PVector.dist(loc, nextLoc) < speed) 
@@ -66,5 +67,3 @@ class Corner {
     vel.mult(speed);
   }
 }
-
-*/

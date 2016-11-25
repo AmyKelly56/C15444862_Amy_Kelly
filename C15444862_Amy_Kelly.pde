@@ -97,19 +97,18 @@ void draw()
       rect(0, height-250, 50, 150);
     }
     */
+    drawTri();
 
     pushMatrix();
     drawGalaxy();
     popMatrix();
-    
-    //drawCircle();
-    //drawTri();
-    
+
+
     pushMatrix();
     drawTrack();
     popMatrix();
    
-    
+ 
     drawCircle();
     
     
