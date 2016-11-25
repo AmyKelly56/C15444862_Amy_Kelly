@@ -75,7 +75,8 @@ void draw()
   {
     gameState = "Main";
     textPopup = false;
-  } else if (gameState == "Main")
+  } 
+  else if (gameState == "Main")
   {
     background(0);
     stars();
@@ -113,9 +114,6 @@ void draw()
     //line(390, 15, 530, 15);
     //line(890, 1200, 1, 1200);
 
-    //rect(0, height-250, 50, 150);
-
-
     //drawTri();
 
     pushMatrix();
@@ -129,6 +127,15 @@ void draw()
 
     drawCircle();
     drawlever();
+    drawEdge();
+    
+  
+    BarChart();
+    drawBarChart();
+    //button();
+    
+    //mousePressed();
+
     
     
   }

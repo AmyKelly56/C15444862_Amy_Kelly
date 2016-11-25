@@ -81,6 +81,7 @@ class Led {
       fill(100, 230, 0);
     }
     else {
+      noStroke();
       fill(100, 230, 0, 50);
     }
      rect(x, y, d, d);

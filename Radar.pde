@@ -8,10 +8,8 @@ int ang3 = 1;
 
 void drawCircle()
 {
-  
   stroke(r, g, b);
-  strokeWeight(10);
-    
+  strokeWeight(10); 
   noFill();
     
   ang += 1;
