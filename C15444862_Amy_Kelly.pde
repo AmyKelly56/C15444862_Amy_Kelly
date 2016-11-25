@@ -1,18 +1,27 @@
+import ddf.minim.*;
 String gameState;
 String tx = "System Loaded";
 Boolean textPopup = true;
 Boolean mouseClickable = false;
+
+AudioPlayer Space;
+Minim minim;
 
 void setup() 
 {
   fullScreen(P3D);
   noStroke();
   noFill();
-  lights();
   frameRate(20);
   loop();
   smooth();
-  strokeJoin(ROUND);
+  
+  minim = new Minim(this);
+  Space = minim.loadFile("contact.wav");
+  
+  red = new Regler(width/2, 600);
+  green = new Regler(width/2, 630);
+  blue = new Regler(width/2, 660);
 
   for (int i = 0; i < am; i++) 
   {
@@ -34,6 +43,7 @@ void draw()
   if (gameState == "Open")
   {
     background(0);
+    Space.play();
     pushMatrix();
     translate(width/2, height/2);
 
@@ -118,6 +128,7 @@ void draw()
     popMatrix();
 
     drawCircle();
+    drawlever();
     
     
   }

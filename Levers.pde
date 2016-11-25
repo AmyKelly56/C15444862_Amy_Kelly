@@ -2,12 +2,9 @@ Regler red,green,blue;
 float r,g,b;
 
 
-void drawlever(){
+void drawlever()
+{
   
-red = new Regler(width/2, 670);
-green = new Regler(width/2, 700);
-blue = new Regler(width/2, 730);
-
 r = map(red.getX(),950, 1050,0,255);
 g = map(green.getX(),950,1050,0,255);
 b = map(blue.getX(),950,1050,0,255);
@@ -40,13 +37,13 @@ this.radius = 10;
 
 void display(){
 ellipseMode(CENTER);
-fill(0);
+fill(#0ACB35);
 noStroke();
 
 
 ellipse(posx,posy,radius*2,radius*2);
 
-stroke(0);
+stroke(#0ACB35);
 strokeWeight(2);
 line(1000,posy,1100,posy);
 line(1000,posy,1100,posy);

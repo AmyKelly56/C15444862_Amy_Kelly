@@ -9,7 +9,7 @@ int ang3 = 1;
 void drawCircle()
 {
   
-  stroke(#0ACB35);
+  stroke(r, g, b);
   strokeWeight(10);
     
   noFill();
