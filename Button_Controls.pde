@@ -1,4 +1,3 @@
-
 boolean button = false;
 
 int x = 150;
@@ -30,4 +29,45 @@ void mousePressed()
   {
     button = !button;
   }  
+}
+
+ControlP5 cp52;
+CheckBox checkbox;
+int myColorBackground;
+
+void Toggle() 
+{
+  fullScreen();
+  smooth();
+  
+  cp52 = new ControlP5(this);
+  checkbox = cp5.addCheckBox("checkBox")
+                .setPosition(510, 670)
+                .setSize(40, 40)
+                .setItemsPerRow(4)
+                .setSpacingColumn(30)
+                .setSpacingRow(20)
+                .addItem("0", 0)
+                .addItem("50", 50)
+                .addItem("100", 100)
+                .addItem("150", 150)
+                ;
+}
+
+void keyPressed() 
+{
+  if (key==' ') 
+  {
+    checkbox.deactivateAll();
+  } 
+  else 
+  {
+    for (int i=0;i<6;i++) 
+    {
+      if (keyCode==(48 + i))
+      { 
+        checkbox.toggle(i);
+      }
+    }
+  }
 }

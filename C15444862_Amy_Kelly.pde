@@ -1,4 +1,6 @@
 import ddf.minim.*;
+import controlP5.*;
+
 String gameState;
 String tx = "System Loaded";
 Boolean textPopup = true;
@@ -10,11 +12,7 @@ Minim minim;
 void setup() 
 {
   fullScreen(P3D);
-  noStroke();
-  noFill();
-  frameRate(20);
-  loop();
-  smooth();
+  frameRate(50);  ///change frame rate for gslaxy to be slower and stars maybe
   
   minim = new Minim(this);
   Space = minim.loadFile("contact.wav");
@@ -32,11 +30,12 @@ void setup()
   gameState = "Open";
 }
 
-float speed = 0.01;
+/*float speed = 0.01;
 int trailLength = 50;  
 float theta = 0;
 float cx, cy;
 float radius = 200;
+*/
 
 void draw() 
 {
@@ -80,6 +79,7 @@ void draw()
   else if (gameState == "Main")
   {
     background(0);
+    frameRate(20);
     stars();
     drawStar();
 
@@ -89,7 +89,8 @@ void draw()
     arc(width/2, 55, 500, 100, 0, PI);
     line(55, 55, 390, 55);
     line(1200, 55, 890, 55);
-    line(55, 55, 55, 500);
+    line(55, 55, 55, 180);
+    line(55, 370, 55, 500);
     line(1200, 55, 1200, 500);
     line(55, 500, 390, 500);
     line(1200, 500, 890, 500);
@@ -99,8 +100,6 @@ void draw()
     arc(0, 0, 500, 200, 0, PI);
     popMatrix();
 
-  
-
     line(55, 530, 390, 530);
     line(1200, 530, 890, 530);
     line(55, 530, 55, 730);
@@ -108,16 +107,13 @@ void draw()
     line(55, 730, 1200, 730);
     fill(0);
     arc(width/2, 530, 500, 220, 0, PI);
-    //line(390, 15, 530, 15);
-    //line(890, 1200, 1, 1200);
 
     //drawTri();
 
     pushMatrix();
     drawGalaxy();
     popMatrix();
-
-
+    
     pushMatrix();
     drawTrack();
     popMatrix();
@@ -126,18 +122,16 @@ void draw()
     drawlever();
     drawEdge();
     
-  
     BarChart();
     drawBarChart();
    
     gui();
-    drawgui();
+    drawCircles();
+    
+    Toggle();
+    keyPressed();
    
     //button();
-    
-    //mousePressed();
-
-    
-    
+    //mousePressed();     
   }
 }
