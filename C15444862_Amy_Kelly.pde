@@ -13,9 +13,6 @@ void setup()
   loop();
   smooth();
   strokeJoin(ROUND);
-  
-  
-  
 
   for (int i = 0; i < am; i++) 
   {
@@ -52,10 +49,10 @@ void draw()
     popMatrix();
   }
   timer();
-  
-  if (timeAccumulator >= 40)
+
+  if (timeAccumulator >= 4)
   {
-      mouseClickable = true;
+    mouseClickable = true;
     if (textPopup == true )    
     {
       fill(255);
@@ -68,8 +65,7 @@ void draw()
   {
     gameState = "Main";
     textPopup = false;
-  } 
-  else if (gameState == "Main")
+  } else if (gameState == "Main")
   {
     background(0);
     stars();
@@ -90,14 +86,27 @@ void draw()
     rotate(radians(180));
     arc(0, 0, 500, 200, 0, PI);
     popMatrix();
-    
- 
-    /*if(mouseX && mouseY)
-    {
-      rect(0, height-250, 50, 150);
-    }
-    */
-    drawTri();
+
+    fill(#0ACB35);
+    ellipse(55, 200, 40, 40);
+    ellipse(55, 250, 40, 40);
+    ellipse(55, 300, 40, 40);
+    ellipse(55, 350, 40, 40);
+
+    line(55, 530, 390, 530);
+    line(1200, 530, 890, 530);
+    line(55, 530, 55, 730);
+    line(1200, 530, 1200, 730);
+    line(55, 730, 1200, 730);
+    fill(0);
+    arc(width/2, 530, 500, 220, 0, PI);
+    //line(390, 15, 530, 15);
+    //line(890, 1200, 1, 1200);
+
+    //rect(0, height-250, 50, 150);
+
+
+    //drawTri();
 
     pushMatrix();
     drawGalaxy();
@@ -107,11 +116,9 @@ void draw()
     pushMatrix();
     drawTrack();
     popMatrix();
-   
- 
+
     drawCircle();
     
     
-  
   }
 }

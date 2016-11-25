@@ -5,7 +5,7 @@ float[] yVel = new float[250];
 float[] s = new float[250]; 
 
 int q = 0;
-int b = 0;
+int o = 0;
 int c = 100;
 int p = 10;
 
@@ -52,14 +52,14 @@ void drawStar()
 void tracker ()
 {
   noStroke ();
-  line (q, b, c, a);
+  line (q, o, c, a);
   q = q + 3;
   
   if (e == 600) 
   {
     q = 0;
     c = c +100;
-    b = b +100;
+    o = o +100;
   }
   stroke (255);
 
