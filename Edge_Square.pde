@@ -30,8 +30,8 @@ void drawEdge()
   else if (state == 2) 
   {
     x1 = x1 - speedsq;
-    if (x < 0) {
-      x = 0;
+    if (x1 < 0) {
+      x1 = 0;
       state = 3;
     }
   } 
@@ -52,7 +52,5 @@ void drawEdge()
       y1 = 10;
       state = 0;
     }
-  }
-  
-    
+  }    
 }

@@ -16,14 +16,14 @@ class Particle
 
   void drawpart() 
   {
-    //Change the size of the particle in relation to its distance from the center.
     noStroke();
     radius = map(dist(loc.x, loc.y, 0, 0), 0, 120, 10, 1);
     fill(#076DF0, 255);
     ellipse(loc.x, loc.y, radius, radius);
   }
   
-  void drawMid() {
+  void drawMid() 
+  {
     fill(40);
     ellipse(loc.x, loc.y, radius-4, radius-4);
   }

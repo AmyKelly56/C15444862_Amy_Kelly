@@ -24,5 +24,4 @@ void drawCircle()
   arc(px,py,lar+150,alt+150, radians(-ang3), radians(-ang3+300));
   arc(px,py,lar+180,alt+180, radians(ang), radians(ang+150));
   arc(px,py,lar+210,alt+210, radians(-ang2), radians(-ang2+200));
-
 }

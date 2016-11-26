@@ -23,8 +23,8 @@ class Regler
   float posx, posy;
   float radius;
   
-  
-  Regler(float posx, float posy){
+Regler(float posx, float posy)
+{  
   this.posx = posx;
   this.posy = posy;
   this.radius = 10;

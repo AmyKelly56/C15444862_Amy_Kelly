@@ -1,15 +1,15 @@
 ArrayList corners = new ArrayList();
 PVector[] points;
-float angle = 120, shapeSize = 80;
+float angle = 120, shapeSize = 45;
 
-  void drawTri(){
- 
+void drawTri()
+{
   points = new PVector[int(360/angle)+1];
 
   for (int i = 0; i < 360; i+=angle) 
   {
     int angleToIndex = int(i/angle);
-    points[angleToIndex] = new PVector(110+sin(radians(i+180))*shapeSize, height-130+cos(radians(i+180))*shapeSize);
+    points[angleToIndex] = new PVector(width/2+sin(radians(i+180))*shapeSize, height-105+cos(radians(i+180))*shapeSize);
   }
  
   if (corners.size() < 40 && (frameCount%=3)==0) corners.add(new Corner(90));

@@ -1,6 +1,5 @@
 float timeDelta = 0;
 float timeAccumulator = 0;
-
 int last = 0;
 
 void timer()
@@ -11,5 +10,4 @@ void timer()
     
   timeAccumulator += timeDelta;    
 }
-
-float a = 30;    
+    

@@ -1,6 +1,7 @@
 int[] angles = { 30, 25, 45, 35, 60, 38, 60, 67 };
 
-void drawPie() {
+void drawPie() 
+{
   pieChart(80, angles);
 }
 

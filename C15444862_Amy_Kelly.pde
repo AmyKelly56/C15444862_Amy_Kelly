@@ -110,7 +110,7 @@ void draw()
     fill(0);
     arc(width/2, 530, 500, 220, 0, PI);
 
-    //drawTri();
+    drawTri();
 
     pushMatrix();
     drawGalaxy();
@@ -131,12 +131,7 @@ void draw()
     drawCircles();
     
     Toggle();
-    keyPressed();
-    
     drawPie();
-   
-   
-    //button();
-    //mousePressed();     
+       
   }
 }

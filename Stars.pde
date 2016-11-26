@@ -11,7 +11,6 @@ int p = 10;
 
 void stars() 
 {
-  
   fill(255);
   for (int i=0; i < 250; i++) 
   {
@@ -52,7 +51,7 @@ void drawStar()
 void tracker ()
 {
   noStroke ();
-  line (q, o, c, a);
+  line (q, o, c, p);
   q = q + 3;
   
   if (e == 600) 
@@ -70,19 +69,19 @@ void tracker ()
     line (xPos[i], yPos[i], xPos[i]-p, yPos[i]);
     line (xPos[i], yPos[i], xPos[i], yPos[i]-p);
     
-    if (a > yPos[i]-25) 
+    if (p > yPos[i]-25) 
     {
       p = 5;
     }
-    if (a < yPos[i]+25) 
+    if (p < yPos[i]+25) 
     {
       p = 5;
     }
-    if (a < yPos[i]-25) 
+    if (p < yPos[i]-25) 
     {
       p = 0;
     }
-    if (a > yPos[i]+25) 
+    if (p > yPos[i]+25) 
     {
       p = 0;
     }
