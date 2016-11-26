@@ -91,7 +91,9 @@ void draw()
     line(1200, 55, 890, 55);
     line(55, 55, 55, 180);
     line(55, 370, 55, 500);
-    line(1200, 55, 1200, 500);
+    line(1200, 55, 1200, 200);
+    rect(1150, 200, 100, 100);
+    line(1200, 300, 1200, 500);
     line(55, 500, 390, 500);
     line(1200, 500, 890, 500);
     pushMatrix();
@@ -130,6 +132,9 @@ void draw()
     
     Toggle();
     keyPressed();
+    
+    drawPie();
+   
    
     //button();
     //mousePressed();     
