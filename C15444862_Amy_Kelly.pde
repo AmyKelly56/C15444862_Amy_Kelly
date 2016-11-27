@@ -30,13 +30,6 @@ void setup()
   gameState = "Open";
 }
 
-/*float speed = 0.01;
-int trailLength = 50;  
-float theta = 0;
-float cx, cy;
-float radius = 200;
-*/
-
 void draw() 
 {
   background(40);
@@ -110,7 +103,7 @@ void draw()
     fill(0);
     arc(width/2, 530, 500, 220, 0, PI);
 
-    drawTri();
+    //drawTri();
 
     pushMatrix();
     drawGalaxy();
@@ -123,6 +116,8 @@ void draw()
     drawCircle();
     drawlever();
     drawEdge();
+    
+    drawTri;
     
     BarChart();
     drawBarChart();
