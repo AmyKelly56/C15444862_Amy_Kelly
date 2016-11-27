@@ -5,7 +5,7 @@ void BarChart()
 {
  cp5 = new ControlP5(this);
  myChart = cp5.addChart("hello")
-           .setPosition(80, 550)
+           .setPosition(100, 550)
            .setSize(150, 150)
            .setRange(-20, 20)
            .setView(Chart.BAR) 

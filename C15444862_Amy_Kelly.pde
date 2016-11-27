@@ -103,8 +103,6 @@ void draw()
     fill(0);
     arc(width/2, 530, 500, 220, 0, PI);
 
-    //drawTri();
-
     pushMatrix();
     drawGalaxy();
     popMatrix();
@@ -117,7 +115,8 @@ void draw()
     drawlever();
     drawEdge();
     
-    drawTri;
+    drawTri();
+    drawClock();
     
     BarChart();
     drawBarChart();

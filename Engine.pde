@@ -4,6 +4,7 @@ float angle = 120, shapeSize = 45;
 
 void drawTri()
 {
+  strokeJoin(ROUND);
   points = new PVector[int(360/angle)+1];
 
   for (int i = 0; i < 360; i+=angle) 
@@ -13,8 +14,10 @@ void drawTri()
   }
  
   if (corners.size() < 40 && (frameCount%=3)==0) corners.add(new Corner(90));
-  stroke(#0ACB35);
+  
+  stroke(0, 150, 255);
   strokeWeight(10);
+  noFill();
   
   beginShape();
   for(int i = 0; i < int(360/angle); i++)
@@ -23,9 +26,9 @@ void drawTri()
   }
   endShape(CLOSE);
   stroke(30);
-  strokeWeight(5);
-  beginShape();
+  strokeWeight(3);
   
+  beginShape();
   for (int i = 0; i < corners.size(); i++) 
   {
     Corner p = (Corner) corners.get(i);
@@ -33,6 +36,8 @@ void drawTri()
     p.move();
   }
   endShape();
+  
+
 }
 
 class Corner {

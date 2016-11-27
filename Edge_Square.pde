@@ -50,7 +50,7 @@ void drawEdge()
     if(y1 < 0)
     {
       y1 = 10;
-      state = 0;
+      state = 1;
     }
   }    
 }
