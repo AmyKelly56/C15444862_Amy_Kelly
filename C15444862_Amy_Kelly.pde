@@ -1,3 +1,8 @@
+/* 
+C15444982 - Amy Kelly
+OOP Assignment 1
+*/
+
 import ddf.minim.*;
 import controlP5.*;
 
@@ -12,7 +17,7 @@ Minim minim;
 void setup() 
 {
   fullScreen(P3D);
-  frameRate(50);  ///change frame rate for gslaxy to be slower and stars maybe
+  frameRate(50);
   
   minim = new Minim(this);
   Space = minim.loadFile("contact.wav");
@@ -75,7 +80,8 @@ void draw()
     frameRate(20);
     stars();
     drawStar();
-
+     
+    //spaceship outlines
     stroke(#0ACB35);
     strokeWeight(3);
     fill(0);
@@ -102,30 +108,25 @@ void draw()
     line(55, 730, 1200, 730);
     fill(0);
     arc(width/2, 530, 500, 220, 0, PI);
+    strokeWeight(7);
+    rect(975, 560, 140, 140);
 
     pushMatrix();
     drawGalaxy();
     popMatrix();
-    
     pushMatrix();
     drawTrack();
     popMatrix();
-
     drawCircle();
     drawlever();
     drawEdge();
-    
     drawTri();
     drawClock();
-    
     BarChart();
     drawBarChart();
-   
     gui();
     drawCircles();
-    
     Toggle();
     drawPie();
-       
   }
 }

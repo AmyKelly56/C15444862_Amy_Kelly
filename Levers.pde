@@ -33,7 +33,7 @@ Regler(float posx, float posy)
 void display()
 {
   ellipseMode(CENTER);
-  fill(#0ACB35);
+  fill(#1887F2);
   noStroke();
 
   ellipse(posx,posy,radius*2,radius*2);

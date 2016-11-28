@@ -79,6 +79,7 @@ void radio(int theC)
   }
 }
 
+//circles to change with drop down
 void drawCircles() 
 {
   fill(cc);
@@ -87,4 +88,22 @@ void drawCircles()
   ellipse(55, 250, 40, 40);
   ellipse(55, 300, 40, 40);
   ellipse(55, 350, 40, 40);
+}
+
+ControlP5 cp52, cp54;
+CheckBox checkbox;
+int myColorBackground;
+
+void Toggle() 
+{
+  cp52 = new ControlP5(this);
+  checkbox = cp5.addCheckBox("checkBox")
+                .setPosition(530, 670)
+                .setSize(40, 40)
+                .setItemsPerRow(2)
+                .setSpacingColumn(140)
+                .setSpacingRow(20)
+                .addItem("0", 0)
+                .addItem("50", 50)
+                ;
 }
