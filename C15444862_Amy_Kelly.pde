@@ -14,10 +14,16 @@ Boolean mouseClickable = false;
 AudioPlayer Space;
 Minim minim;
 
+Table Galaxies;
+ArrayList <BarChart> bars = new ArrayList<BarChart>();
+
 void setup() 
 {
   fullScreen(P3D);
   frameRate(50);
+  
+  Galaxies = loadTable("Galaxies.csv", "header");
+  createbarChart();
   
   minim = new Minim(this);
   Space = minim.loadFile("contact.wav");
@@ -37,7 +43,7 @@ void setup()
 
 void draw() 
 {
-  background(40);
+  background(30);
   if (gameState == "Open")
   {
     background(0);
@@ -58,7 +64,7 @@ void draw()
   }
   timer();
 
-  if (timeAccumulator >= 4)
+  if (timeAccumulator >= 35)
   {
     mouseClickable = true;
     if (textPopup == true )    
@@ -122,7 +128,6 @@ void draw()
     drawEdge();
     drawTri();
     drawClock();
-    BarChart();
     drawBarChart();
     gui();
     drawCircles();

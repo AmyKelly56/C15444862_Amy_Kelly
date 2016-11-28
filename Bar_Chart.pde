@@ -1,32 +1,42 @@
-ControlP5 cp5;
-Chart myChart;
-
-void BarChart() 
+class BarChart
 {
- cp5 = new ControlP5(this);
- myChart = cp5.addChart("hello")
-           .setPosition(100, 550)
-           .setSize(150, 150)
-           .setRange(-20, 20)
-           .setView(Chart.BAR) 
-           ;
+  String name;
+  Float mag;
+  color c;
+  
+  BarChart(TableRow row)
+  {
+    this.name = row.getString("name");
+    this.mag = row.getFloat("magnitude"); 
+    c = color(random(255), random(255), random(255));
+  }
+  
+  void drawBar(float x)
+  {
+    fill(c);
+    rect(x, height-100, 20,-map(mag, 0, 8.2, 0, 100));
+    textSize(10);
+    text(name, x, height-80);
+    text(mag, x, height-112 -(map(mag, 0, 8.2, 0, 100) -10));
+  }  
+} 
 
-  myChart.getColor().setBackground(color(0));
-
-  myChart.addDataSet("world");
-  myChart.setColors("world", color(#1AC4FF),color(0, 0, 255));
-  myChart.setData("world", new float[4]);
-
-  myChart.setStrokeWeight(1.5);
-
-  myChart.addDataSet("earth");
-  myChart.setColors("earth", color(#9FDDF2), color(0, 0, 0));
-  myChart.updateData("earth", 1, 2, 10, 3);
-
+void createbarChart()
+{
+  for(TableRow row:Galaxies.rows())
+  {
+    BarChart b = new BarChart(row);
+    bars.add(b);
+  }
 }
 
-void drawBarChart() 
+void drawBarChart()
 {
-  myChart.unshift("world", (sin(frameCount*0.01)*10));
-  myChart.push("earth", (sin(frameCount*0.1)*10));
+  int x = 100;
+  for(BarChart b: bars)
+  {
+    b.drawBar(x);
+    
+    x += 60; 
+  }
 }

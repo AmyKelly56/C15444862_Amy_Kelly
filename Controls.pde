@@ -1,3 +1,4 @@
+ControlP5 cp5;
 ControlP5 cp51;
 Accordion accordion;
 Accordion accordion1;
@@ -7,7 +8,7 @@ void gui()
 {
   smooth();
   
-  cp51 = new ControlP5(this);
+  cp5 = new ControlP5(this);
   Group g1 = cp5.addGroup("Control1")
                 .setHeight(27)
                 .setBackgroundColor(color(0, #0ACB35))
