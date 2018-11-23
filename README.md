@@ -1,6 +1,5 @@
-# C15444862_Amy_Kelly
+# Sci-FI UI Design
 
-OOP Assignment 1 - Sci- Fi UI design
 
 Open file called C15444862 to run program. Opening blue particle diplayed on screen for 30 seconds. In this opening imported the Minium sound library in order to use sound while that animation plays out. After 30 seconds on screen prompt displayed using. Click on screen when "System Loaded" displayed, this will bring you to the main UI page. Slight lagging in loading of Galaxy Star located in the middle of the window. 
 
